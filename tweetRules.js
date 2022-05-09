@@ -1,3 +1,7 @@
+export const generateTweet = (title, year, review, score) => {
+    return `${title}${year} ${review} ${score}`;
+};
+
 export const starRating = score => {
     let star = '\u2605';
     let halfSymbol = '\u00BD';

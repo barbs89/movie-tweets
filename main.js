@@ -20,7 +20,11 @@ const main = () => {
 			let reviewRev = reviewObj.review;
 			let reviewScore = starRating(reviewObj.score);
 
-			console.log(reviewTitle, reviewRev, reviewScore)
+			let movie = movieData.find( ({ title }) => title === reviewTitle );
+				movie != null ? movieYear = ` (${movie.year}):` : movieYear = ':';
+		
+				tweet = generateTweet(reviewTitle, movieYear, reviewRev, reviewScore);
+				console.log(tweet)
 		}
 }
 main();
