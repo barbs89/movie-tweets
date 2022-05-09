@@ -9,3 +9,12 @@ const loadFile = file => {
       obj = JSON.parse(data);
   return obj;
 };
+
+const main = () => {
+    const reviewData = loadFile(reviews),
+        	movieData = loadFile(movies);
+					console.log(reviewData);
+					console.log(movieData);
+}
+
+main();
