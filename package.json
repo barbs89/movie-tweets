@@ -1,7 +1,7 @@
 {
-  "name": "99designs",
+  "name": "movie-tweets",
   "version": "1.0.0",
-  "description": "At 99designs, we love lots of things. Great design, great coffee, great code, and when it comes time to unwind… great movies.",
+  "description": "I love movies!",
   "main": "main.js",
   "type": "module",
   "scripts": {

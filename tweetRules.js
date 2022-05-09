@@ -7,17 +7,16 @@ export const countChar = str => {
 	return count;
 };
 
-export const remainderCount = tweet => tweet - 140;
+export const remainderCount = tweet => countChar(tweet) - 140;
 
-export const updateReview = (tweet, title, year, review, score ) => {
-  	let checkCount = remainderCount(countChar(tweet));
-  	let reviewReviewCount = countChar(review);
-    let reviewLimit = reviewReviewCount - checkCount;
-    let updatedReview = truncateStr(review, reviewLimit);
-    let latestTweet = generateTweet(title, year, updatedReview, score);
-  
-  	return latestTweet;
-}
+export const updateReview = (tweet, review) => {
+	let checkCount = remainderCount(tweet);
+	let reviewRevCount = countChar(review);
+	let reviewLimit = reviewRevCount - checkCount;
+	let updatedReview = truncateStr(review, reviewLimit);
+	
+	return updatedReview;
+  }
 
 export const truncateStr = (string, limit) => {
     if (string.length > limit) {
