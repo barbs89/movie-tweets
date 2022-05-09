@@ -9,6 +9,16 @@ export const countChar = str => {
 
 export const remainderCount = tweet => tweet - 140;
 
+export const updateReview = (tweet, title, year, review, score ) => {
+  	let checkCount = remainderCount(countChar(tweet));
+  	let reviewReviewCount = countChar(review);
+    let reviewLimit = reviewReviewCount - checkCount;
+    let updatedReview = truncateStr(review, reviewLimit);
+    let latestTweet = generateTweet(title, year, updatedReview, score);
+  
+  	return latestTweet;
+}
+
 export const truncateStr = (string, limit) => {
     if (string.length > limit) {
       return string.substring(0, limit);

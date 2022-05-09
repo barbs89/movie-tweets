@@ -1,6 +1,6 @@
 import { argv } from 'process';
 import { readFileSync } from 'fs';
-import { starRating, countChar, remainderCount, generateTweet, truncateStr } from './tweetRules.js';
+import { starRating, countChar, remainderCount, generateTweet, truncateStr, updateReview } from './tweetRules.js';
 
 const reviews = argv[2];
 const movies = argv[3];
@@ -20,6 +20,7 @@ const main = () => {
 			let reviewTitle = reviewObj.title;
 			let reviewDescription = reviewObj.review;
 			let reviewScore = starRating(reviewObj.score);
+			let movieYear = '';
 
 			let movie = movieData.find( ({ title }) => title === reviewTitle );
 				movie != null ? movieYear = ` (${movie.year}):` : movieYear = ':';
@@ -33,7 +34,12 @@ const main = () => {
 				reviewTitle = truncateStr(reviewTitle, 25);
 				tweet = generateTweet(reviewTitle, movieYear, reviewDescription, reviewScore);
 
-				console.log(tweet)
+				if (tweetCount > 140) {
+					tweet = updateReview(tweet, reviewTitle, movieYear, reviewDescription, reviewScore);
+					console.log(tweet);
+				} else {
+					console.log(tweet);
+				};
 
 			} else {
 				console.log(tweet);
