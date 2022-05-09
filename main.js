@@ -12,19 +12,24 @@ const loadFile = file => {
 };
 
 const main = () => {
+	let tweet = '';
     const reviewData = loadFile(reviews);
     const movieData = loadFile(movies);
 		
 		for (const reviewObj of reviewData) {
 			let reviewTitle = reviewObj.title;
-			let reviewRev = reviewObj.review;
+			let reviewDescription = reviewObj.review;
 			let reviewScore = starRating(reviewObj.score);
 
 			let movie = movieData.find( ({ title }) => title === reviewTitle );
 				movie != null ? movieYear = ` (${movie.year}):` : movieYear = ':';
 		
-				tweet = generateTweet(reviewTitle, movieYear, reviewRev, reviewScore);
-				console.log(tweet)
+				tweet = generateTweet(reviewTitle, movieYear, reviewDescription, reviewScore);
+				
+			let tweetCount = countChar(tweet);
+			let hasRemainder = remainderCount(tweetCount); 
+
+			console.log(tweetCount, hasRemainder)
 		}
 }
 main();

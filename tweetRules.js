@@ -2,6 +2,13 @@ export const generateTweet = (title, year, review, score) => {
     return `${title}${year} ${review} ${score}`;
 };
 
+export const countChar = str => {
+	let count =  str.split('').length;
+	return count;
+};
+
+export const remainderCount = tweet => tweet - 140;
+
 export const starRating = score => {
     let star = '\u2605';
     let halfSymbol = '\u00BD';
@@ -16,7 +23,7 @@ export const starRating = score => {
       addRemainder = starTotal % 1 > 0.5 ? star : halfSymbol;
     } else {
       addInteger = star.repeat(starTotal);
-    }
+    };
   
     return addInteger + addRemainder;
 };
