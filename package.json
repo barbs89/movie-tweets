@@ -1,0 +1,16 @@
+{
+  "name": "99designs",
+  "version": "1.0.0",
+  "description": "At 99designs, we love lots of things. Great design, great coffee, great code, and when it comes time to unwind… great movies.",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha '*.test.js' --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.2"
+  }
+}
