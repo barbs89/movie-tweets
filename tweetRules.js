@@ -9,6 +9,14 @@ export const countChar = str => {
 
 export const remainderCount = tweet => tweet - 140;
 
+export const truncateStr = (string, limit) => {
+    if (string.length > limit) {
+      return string.substring(0, limit);
+    } else {
+      return string;
+    };
+};
+
 export const starRating = score => {
     let star = '\u2605';
     let halfSymbol = '\u00BD';

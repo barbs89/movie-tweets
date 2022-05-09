@@ -1,6 +1,6 @@
 import { argv } from 'process';
 import { readFileSync } from 'fs';
-import { starRating } from './tweetRules.js';
+import { starRating, countChar, remainderCount, generateTweet, truncateStr } from './tweetRules.js';
 
 const reviews = argv[2];
 const movies = argv[3];
@@ -29,7 +29,15 @@ const main = () => {
 			let tweetCount = countChar(tweet);
 			let hasRemainder = remainderCount(tweetCount); 
 
-			console.log(tweetCount, hasRemainder)
+			if (hasRemainder > 0) {
+				reviewTitle = truncateStr(reviewTitle, 25);
+				tweet = generateTweet(reviewTitle, movieYear, reviewDescription, reviewScore);
+
+				console.log(tweet)
+
+			} else {
+				console.log(tweet);
+			};
 		}
 }
 main();
