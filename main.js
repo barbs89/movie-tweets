@@ -28,14 +28,15 @@ const main = () => {
 				tweet = generateTweet(reviewTitle, movieYear, reviewDescription, reviewScore);
 				
 			let tweetCount = countChar(tweet);
-			let hasRemainder = remainderCount(tweetCount); 
+			let hasRemainder = remainderCount(tweet); 
 
 			if (hasRemainder > 0) {
 				reviewTitle = truncateStr(reviewTitle, 25);
 				tweet = generateTweet(reviewTitle, movieYear, reviewDescription, reviewScore);
 
 				if (tweetCount > 140) {
-					tweet = updateReview(tweet, reviewTitle, movieYear, reviewDescription, reviewScore);
+					let updatedReview = updateReview(tweet, reviewDescription);
+						tweet = generateTweet(reviewTitle, movieYear, updatedReview, reviewScore);
 					console.log(tweet);
 				} else {
 					console.log(tweet);

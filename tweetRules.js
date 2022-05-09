@@ -9,15 +9,6 @@ export const countChar = str => {
 
 export const remainderCount = tweet => countChar(tweet) - 140;
 
-export const updateReview = (tweet, review) => {
-	let checkCount = remainderCount(tweet);
-	let reviewRevCount = countChar(review);
-	let reviewLimit = reviewRevCount - checkCount;
-	let updatedReview = truncateStr(review, reviewLimit);
-	
-	return updatedReview;
-  }
-
 export const truncateStr = (string, limit) => {
     if (string.length > limit) {
       return string.substring(0, limit);
@@ -25,6 +16,15 @@ export const truncateStr = (string, limit) => {
       return string;
     };
 };
+
+export const updateReview = (tweet, review) => {
+	let checkCount = remainderCount(tweet);
+	let reviewRevCount = countChar(review);
+	let reviewLimit = reviewRevCount - checkCount;
+	let updatedReview = truncateStr(review, reviewLimit);
+	
+	return updatedReview;
+}
 
 export const starRating = score => {
     let star = '\u2605';
